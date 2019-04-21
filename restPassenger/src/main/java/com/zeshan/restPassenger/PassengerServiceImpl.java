@@ -2,6 +2,9 @@ package com.zeshan.restPassenger;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.ws.rs.FormParam;
+
 import org.springframework.stereotype.Service;
 import com.zeshan.restPassenger.model.Passenger;
 
@@ -26,6 +29,13 @@ public class PassengerServiceImpl implements PassengerService {
 		pass.setId(currentID);
 		passengers.add(pass);
 		return pass;
+	}
+	@Override
+	public void formaddPassenger(String firstName,String lastName) {
+		System.out.println(firstName);
+		System.out.println(lastName);
+		
+		
 	}
 
 }

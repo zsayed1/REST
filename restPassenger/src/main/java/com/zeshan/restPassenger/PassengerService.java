@@ -5,7 +5,8 @@ import javax.ws.rs.*;
 import com.zeshan.restPassenger.model.Passenger;
 @Path("/passengerservice")
 @Produces("application/xml")
-@Consumes("application/xml")
+// USed when form param is used 
+@Consumes("application/xml,application/x-www-form-urlencoded")
 
 public interface PassengerService {
 	@Path("/pass")
@@ -15,6 +16,10 @@ public interface PassengerService {
 	@Path("/pass")
 	@POST
 	Passenger addPassenger(Passenger pass);
+	@Path("/pass")
+	@POST
+	void formaddPassenger(@FormParam("firstName")String firstName, @FormParam("lastName")String lastName);
+	
 	
 	
 	
