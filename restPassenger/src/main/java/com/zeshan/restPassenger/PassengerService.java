@@ -16,11 +16,17 @@ public interface PassengerService {
 	@Path("/pass")
 	@POST
 	Passenger addPassenger(Passenger pass);
+	
+	
 	@Path("/pass")
 	@POST
-	void formaddPassenger(@FormParam("firstName")String firstName, @FormParam("lastName")String lastName);
+	void formaddPassenger(@FormParam("firstName")String firstName, @FormParam("lastName")String lastName, @HeaderParam("agent")String agent);
 	
-	
-	
+//	@Path("/pass")
+//	@POST
+//	void formaddPassenger(@FormParam("firstName")String firstName, @FormParam("lastName")String lastName);
+//	
+//	
+//	
 	
 }

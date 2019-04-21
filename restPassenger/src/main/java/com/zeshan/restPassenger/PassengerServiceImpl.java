@@ -31,11 +31,17 @@ public class PassengerServiceImpl implements PassengerService {
 		return pass;
 	}
 	@Override
-	public void formaddPassenger(String firstName,String lastName) {
+	public void formaddPassenger(String firstName,String lastName,String agent) {
+	
 		System.out.println(firstName);
-		System.out.println(lastName);
-		
-		
+		System.out.println(lastName);	
+		System.out.println(agent);
 	}
+//	
+//	@Override
+//	public void formaddPassenger(String firstName,String lastName) {
+//		System.out.println(firstName);
+//		System.out.println(lastName);
+//	}
 
 }
