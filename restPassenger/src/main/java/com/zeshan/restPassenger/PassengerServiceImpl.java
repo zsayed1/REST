@@ -13,10 +13,11 @@ public class PassengerServiceImpl implements PassengerService {
 	ArrayList<Passenger> passengers = new ArrayList<>();
 	String currentID= "123";
 	@Override
-	public List<Passenger> getPassengers() {
+	public List<Passenger> getPassengers(int start, int size) {
 		// TODO Auto-generated method stub
 		
-	
+		System.out.println(start);
+		System.out.println(size);
 		return passengers;
 	}
 
