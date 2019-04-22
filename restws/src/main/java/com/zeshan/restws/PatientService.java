@@ -62,4 +62,7 @@ public interface PatientService {
 	void HttpHeaderAdd(@FormParam("firstName")String firstName,@FormParam("lastName") String lastName,@Context HttpHeaders headers);
 }
 	
-}
+
+
+
+
