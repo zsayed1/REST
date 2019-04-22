@@ -8,6 +8,7 @@ import java.util.Map;
 import java.util.Set;
 
 import javax.ws.rs.WebApplicationException;
+import javax.ws.rs.core.Cookie;
 import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.core.Response;
@@ -123,12 +124,24 @@ public class PatientServiceImpl implements PatientService {
 	
 	@Override
 	public void HttpHeaderAdd(String firstName, String lastName, HttpHeaders headers) {
-		// TODO Auto-generated method stub
+		// Get Headers from the existing request
 		MultivaluedMap<String, String> requestHeaders = headers.getRequestHeaders();
 		Set<String> keySet = requestHeaders.keySet();
 		for (String key : keySet) {
-			System.out.println(key+"=="+headers.getHeaderString(key));		
+			System.out.println(">>>>>>>>>>>>>>>>>>>>Headers<<<<<<<<<<<<<<,");
+			System.out.println(key+"="+headers.getHeaderString(key));		
 		}
+		// Get cookie from the existing request and storing it to a map
+		Map<String, Cookie> cookies = headers.getCookies();
+		// Get the cookie key set to extract each cookie from the cookie map
+		Set<String> cookieKey = cookies.keySet();
+		// Iterate thru the cookie Set to extract each cookie to pass in sysout of the cookie set
+		for(String eachCookieKey: cookieKey) {
+			System.out.println(">>>>>>>>>>>>>>>>>>>>>>Cookie<<<<<<<<<<<<<<<<<<<<");
+			System.out.println(eachCookieKey+"="+cookies.get(eachCookieKey).getValue());
+//			System.out.println(cookies.get(eachCookieKey).getValue());
+		}
+		
 	}
 	
 	
