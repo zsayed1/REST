@@ -1,14 +1,16 @@
 package com.zeshan.restws;
 
-import java.util.Map;
-
-import javax.ws.rs.WebApplicationException;
-import javax.ws.rs.core.Response;
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import javax.ws.rs.WebApplicationException;
+import javax.ws.rs.core.HttpHeaders;
+import javax.ws.rs.core.MultivaluedMap;
+import javax.ws.rs.core.Response;
 
 import org.springframework.stereotype.Service;
 
@@ -16,6 +18,7 @@ import com.zeshan.restws.exceptions.PatientBusinessException;
 import com.zeshan.restws.model.Patient;
 
 // This class is used to create methods to run the logic behind the Service
+
 
 @Service
 public class PatientServiceImpl implements PatientService {
@@ -99,4 +102,44 @@ public class PatientServiceImpl implements PatientService {
 		}
 		return response;
 	}
+//	@Override
+//	public void formadd(String firstName, String lastName) {
+//		System.out.println(firstName);
+//		System.out.println(lastName);
+//		Response response;
+//		response = Response.ok().build();
+//		
+//	}
+//	@Override
+//	public void agentadd(String firstName, String lastName, String agent) {
+////		System.out.println(firstName);
+////		System.out.println(lastName);
+//		System.out.println(agent);
+//		Response response;
+//		response = Response.ok().build();
+//		
+//	}
+
+	
+	@Override
+	public void HttpHeaderAdd(String firstName, String lastName, HttpHeaders headers) {
+		// TODO Auto-generated method stub
+		MultivaluedMap<String, String> requestHeaders = headers.getRequestHeaders();
+		Set<String> keySet = requestHeaders.keySet();
+		for (String key : keySet) {
+			System.out.println(key+"=="+headers.getHeaderString(key));		
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

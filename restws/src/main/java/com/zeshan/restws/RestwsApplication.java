@@ -9,6 +9,5 @@ public class RestwsApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(RestwsApplication.class, args);
 	}
-
 }
 
