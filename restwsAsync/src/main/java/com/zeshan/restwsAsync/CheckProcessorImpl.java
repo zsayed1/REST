@@ -9,7 +9,12 @@ public class CheckProcessorImpl implements CheckProcessor {
 	@Override
 	public void processCheck(AsyncResponse response ,CheckList checklist) {
 		//Async methon is boolean async 
-		response.resume(true);
+		new Thread() {
+			public void run() {
+				response.resume(true);
+			}
+		}.start();
+		
 	}
 
 }
