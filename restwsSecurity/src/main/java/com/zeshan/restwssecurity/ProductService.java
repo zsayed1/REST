@@ -19,12 +19,12 @@ public interface ProductService {
 	
 	@GET
 	@Path("/prod")
-	@Produces(MediaType.APPLICATION_XML)
+	@Produces("application/xml")
 	List<Product> getproduct();
 	
 	
 	@POST
 	@Path("/prod")
-	@Produces(MediaType.APPLICATION_XML)
+	@Produces("application/xml")
 	int addproduct(Product product);
 	}
