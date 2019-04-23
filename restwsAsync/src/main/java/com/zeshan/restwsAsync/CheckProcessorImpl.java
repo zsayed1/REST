@@ -2,8 +2,10 @@ package com.zeshan.restwsAsync;
 
 import javax.ws.rs.container.AsyncResponse;
 
-import com.zeshan.restwsAsync.model.CheckList;
+import org.springframework.stereotype.Service;
 
+import com.zeshan.restwsAsync.model.CheckList;
+@Service
 public class CheckProcessorImpl implements CheckProcessor {
 
 	@Override
