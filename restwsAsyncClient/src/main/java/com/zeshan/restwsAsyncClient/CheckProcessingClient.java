@@ -3,6 +3,7 @@ package com.zeshan.restwsAsyncClient;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 
+import javax.ws.rs.BadRequestException;
 import javax.ws.rs.client.AsyncInvoker;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
@@ -16,7 +17,7 @@ public class CheckProcessingClient {
 		// Create a client as we create using Client Builder
 		Client newClient = ClientBuilder.newClient();
 		// Create Web Target with client.target to point to the rest endpoint
-		WebTarget target= newClient.target("http://localhost:8080/restwsAsync").path("/check");
+		WebTarget target= newClient.target("http://localhost:8080/restwsAsync/services/restwsasync/check");
 		// Now w use target.request().async() and assign it to an invoker
 		AsyncInvoker async = target.request().async();
         // Then we specify the post request with type and what to be passed and then we  assign it a locval variable 
@@ -27,7 +28,9 @@ public class CheckProcessingClient {
 		} catch (InterruptedException | ExecutionException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			if(e.getCause() instanceof BadRequestException) {
+				System.out.println("Please send a valid list of checks");		
+			}
 		}
 	}
-
 }
